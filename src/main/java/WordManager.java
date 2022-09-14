@@ -34,7 +34,7 @@ public class WordManager {
                 wordCRUD.listAll();
             }
             else if(menu==2){
-
+                wordCRUD.SearchLevel();
             }
             else if(menu==3){
 
