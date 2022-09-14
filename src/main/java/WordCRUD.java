@@ -23,11 +23,11 @@ public class WordCRUD implements ICRUD {
     public void addWord(){
         Word one= (Word)add();
         list.add(one);
-        System.out.println("새 단어가 단어장에 추가되었습니다.");
+        System.out.println("\n새 단어가 단어장에 추가되었습니다.");
     }
 
     public void listAll(){
-        System.out.println("--------------------------------");
+        System.out.println("\n--------------------------------");
         for(int i=0;i<list.size();i++){
             System.out.print((i+1)+" ");
             System.out.println(list.get(i).toString());
@@ -37,7 +37,7 @@ public class WordCRUD implements ICRUD {
 
     @Override
     public void update() {
-        System.out.print("=> 수정할 단어 검색 : ");
+        System.out.print("\n=> 수정할 단어 검색 : ");
         String UpdateWord=s.next();
         ArrayList<Integer> NewList = this.listAll(UpdateWord);
         System.out.print("=> 수정할 번호 선택 : ");
@@ -47,8 +47,7 @@ public class WordCRUD implements ICRUD {
         String meaning = s.nextLine();
         Word word =list.get(NewList.get(UpdateNum-1));
         word.setMeaning(meaning);
-        System.out.println("단어 수정이 성공적으로 되었습니다!!");
-
+        System.out.println("\n단어 수정이 성공적으로 되었습니다!!");
     }
 
     public ArrayList<Integer> listAll(String UpdateWord) {
@@ -69,14 +68,21 @@ public class WordCRUD implements ICRUD {
     }
 
     @Override
-    public int delete() {
-        return 0;
+    public void delete() {
+        System.out.print("\n=> 삭제할 단어 검색 : ");
+        String DeleteWord=s.next();
+        ArrayList<Integer> NewList = this.listAll(DeleteWord);
+        System.out.print("=> 삭제할 번호 선택 : ");
+        int DeleteNum = s.nextInt();
+        s.nextLine();
+        System.out.print("=> 정말로 삭제하실래요?(Y/n) ");
+        String Danswer = s.next();
+        if(Danswer.equalsIgnoreCase("y")){
+            list.remove(list.get(DeleteNum-1));
+            System.out.println("\n선택한 단어 삭제 완료 !!!");
+        }
+        else
+            System.out.println("취소되었습니다.");
     }
-
-    @Override
-    public void select(Object o) {
-
-    }
-
 
 }

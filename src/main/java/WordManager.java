@@ -8,7 +8,6 @@ public class WordManager {
     }
     public int selectMenu(){
         System.out.print("""
-                *** 영단어 마스터 ***
                 ********************
                 1. 모든 단어 보기
                 2. 수준별 단어 보기
@@ -25,6 +24,8 @@ public class WordManager {
 
     }
     public void start(){
+        System.out.println("*** 영단어 마스터 ***");
+
         while(true) {
             int menu = selectMenu();
             if (menu==0) break;
@@ -44,7 +45,7 @@ public class WordManager {
                 wordCRUD.update();
             }
             else if(menu==6){
-
+                wordCRUD.delete();
             }
             else if(menu==7){
 
