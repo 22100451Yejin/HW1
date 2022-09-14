@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -89,7 +87,7 @@ public class WordCRUD implements ICRUD {
             System.out.println("취소되었습니다.");
     }
 
-    public void load(){
+    public void loadFile(){
         try{
             BufferedReader br = new BufferedReader(new FileReader(Filename));
             String line;
@@ -111,6 +109,19 @@ public class WordCRUD implements ICRUD {
         }
         catch (IOException e){
             e.printStackTrace();
+        }
+    }
+
+    public void saveFile(){
+        try {
+            PrintWriter pr = new PrintWriter(new FileWriter(Filename));
+            for(Word one : list){
+                pr.write(one.toFIleString()+"\n");
+            }
+            pr.close();
+            System.out.println("모든 단어 파일 저장 완료!!!");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

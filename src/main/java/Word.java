@@ -52,6 +52,10 @@ public class Word {
 
         return str;
     }
+
+    public String toFIleString(){
+        return this.level+"|"+this.word+"|"+this.meaning;
+    }
 }
 
 
