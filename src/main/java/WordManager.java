@@ -24,6 +24,7 @@ public class WordManager {
 
     }
     public void start(){
+        wordCRUD.load();
         System.out.println("*** 영단어 마스터 ***");
 
         while(true) {
@@ -49,7 +50,7 @@ public class WordManager {
             }
             else if(menu==7){
 
-            };
+            }
         }
     }
 }
